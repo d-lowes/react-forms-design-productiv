@@ -13,4 +13,11 @@ describe("Todo component", function () {
   it("Renders the Todo component", function () {
     render (<Todo todo={todo}/>)
   });
+
+  it("contains correct text from todo", function () {
+    const result = render(<Todo todo={todo} />);
+    expect(result.queryByText("test")).toBeInTheDocument();
+    expect(result.queryByText("for editabletodo")).toBeInTheDocument();
+    expect(result.queryByText("blah")).not.toBeInTheDocument();
+  });
 });
